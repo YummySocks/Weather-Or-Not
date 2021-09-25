@@ -6,10 +6,18 @@ header {
 main {
     display: flex;
 }
-.current {
+.current, .cardD {
     border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
 }
 
+.cardD {
+    background-color: rgb(26, 32, 80);
+    color: white;
+}
 .days {
     display: flex;
     justify-content: space-around;

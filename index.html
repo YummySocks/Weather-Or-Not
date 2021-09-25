@@ -31,14 +31,26 @@
         </div>
         <div class="col-10">
           <div id="current" class="current row">
-            
+            <div id="top">
+              <h2><span id="cityName"></span><span id="currentDate"></span><span id="currentIcon"></span></h2>
+            </div>
+            <div id="bottom">
+              <p>Temp: <span id="tempF"></span></p>
+              <br/>
+              <p>Wind: <span id="windS"></span></p>
+              <br />
+              <p>Humidity <span id="humid"></span>%</p>
+              <br />
+              <p>UV Index: <span id="UVI"></span></p>
+            </div>
           </div>
+          <h2>5-Day Forecast:</h2>
           <div class="days row">
-            <div id="day-1" class="col-2"></div>
-            <div id="day-2" class="col-2"></div>
-            <div id="day-3" class="col-2"></div>
-            <div id="day-4" class="col-2"></div>
-            <div id="day-5" class="col-2"></div>
+            <div id="day-1" class="cardD col-2"></div>
+            <div id="day-2" class="cardD col-2"></div>
+            <div id="day-3" class="cardD col-2"></div>
+            <div id="day-4" class="cardD col-2"></div>
+            <div id="day-5" class="cardD col-2"></div>
           </div>
         </div>
     </main>
@@ -47,6 +59,7 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

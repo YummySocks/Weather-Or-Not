@@ -1,5 +1,6 @@
 var ApiKey = '8fceceef7f0be4b04dce5313fe7967a1';
-
+var days5 = $(".cardD")
+console.log(days5)
 $('#searchButton').on("click",function(){
     var textInput = $('#searchText').val();
     city = textInput;
@@ -11,6 +12,7 @@ $('#searchButton').on("click",function(){
 function pullWeatherData(d){
     var lat = d.coord.lat;
     var lon = d.coord.lon;
+    $("#cityName").text(d.name);
     fullWeatherData(lat,lon);
 }
 //used for getting the data for todays weather and the next 5 days
@@ -19,8 +21,17 @@ function forecastData(f){
     var uvIndex = f.current.uvi;
     var humidity = f.current.humidity;
     var wind = f.current.wind_speed + "MPH";
+    var currentTimeUnix = f.current.dt + f.timezone_offset;
+    var currentTime = moment.unix(currentTimeUnix).format("(MM/D/YYYY)")
+    $('#currentDate').text(currentTime)
+    $('#tempF').text(currentTemp)
+    $('#windS').text(wind)
+    $('#humid').text(humidity)
+    $('#UVI').text(uvIndex)
 
+    days5.each(function(i){
 
+    })
 
 
 
