@@ -2,3 +2,24 @@
 header {
     background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
 }
+
+main {
+    display: flex;
+}
+.current {
+    border: 1px solid black;
+}
+
+.days {
+    display: flex;
+    justify-content: space-around;
+}
+
+.current, .days {
+    height: 50vh;  
+}
+
+#results-list {
+    border-top: 2px solid black;
+    margin-top: 2rem;
+}

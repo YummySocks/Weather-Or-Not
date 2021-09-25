@@ -15,6 +15,26 @@ function pullWeatherData(d){
 }
 //used for getting the data for todays weather and the next 5 days
 function forecastData(f){
+    var currentTemp = f.current.temp + "ºF";
+    var uvIndex = f.current.uvi;
+    var humidity = f.current.humidity;
+    var wind = f.current.wind_speed + "MPH";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     console.log(f);
 }
 

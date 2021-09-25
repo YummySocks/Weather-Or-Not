@@ -18,13 +18,28 @@
       </div>
     </header>
     <main>
-        <div class="col-4">
-          <h2>Search for a city!</h2>
-          <input id="searchText" type="text"><br>
-          <input id="searchButton" type="submit" value="Search">
+        <div class="col-2">
+          <div class="row">
+            <h2>Search for a city!</h2>
+            <input id="searchText" type="text"><br>
+            <input id="searchButton" type="submit" value="Search">
+          </div>
+          <div id="results-list">
+            <ul id="results">
+            </ul>
+          </div>
         </div>
-        <div class="col-6">
-
+        <div class="col-10">
+          <div id="current" class="current row">
+            
+          </div>
+          <div class="days row">
+            <div id="day-1" class="col-2"></div>
+            <div id="day-2" class="col-2"></div>
+            <div id="day-3" class="col-2"></div>
+            <div id="day-4" class="col-2"></div>
+            <div id="day-5" class="col-2"></div>
+          </div>
         </div>
     </main>
     <script
