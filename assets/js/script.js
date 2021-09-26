@@ -9,6 +9,7 @@ $('#searchButton').on("click",function(){
 })
 
 function displayCities(){
+    $("#results").empty();
     if(cities != null){
         while (cities.length > 8){
             cities = JSON.parse(localStorage.getItem("citiesLi"));
@@ -21,11 +22,17 @@ function displayCities(){
     } else {
        for(i=0; i < cities.length; i++){
             var tempC = cities[i];
+            var tempLi = $("<li></li>")
             var tempButton = $("<button></button>").addClass("btn btn-secondary resultsB");
-            tempButton.appendTo(resultsLi[i]);
+            $("#results").append(tempLi);
+            tempButton.appendTo(tempLi);
             tempButton.append(tempC);
-
        }
+       $(".resultsB").on("click", function(){
+        var city = $(this).text()
+        console.log(city)
+        grabWeatherData(city);
+    })
     }
 }
 
@@ -85,7 +92,7 @@ function saveCity (city) {
 
 
 //grabs the weather data from the city variable
-function grabWeatherData(){
+function grabWeatherData(city){
     var currentUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+ApiKey + '&units=imperial';
     fetch(currentUrl , {
         method: 'GET',
