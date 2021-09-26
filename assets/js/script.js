@@ -5,7 +5,7 @@ var resultsLi = $(".resultsLi")
 $('#searchButton').on("click",function(){
     var textInput = $('#searchText').val();
     city = textInput;
-    grabWeatherData();
+    grabWeatherData(city);
 })
 
 function displayCities(){
@@ -51,9 +51,13 @@ function forecastData(f){
     var uvIndex = f.current.uvi;
     var humidity = f.current.humidity;
     var wind = f.current.wind_speed + "MPH";
-    var currentTimeUnix = f.current.dt + f.timezone_offset;
+    var icon = f.current.weather[0].icon;
+    console.log(icon);
+    var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+    var currentTimeUnix = f.daily[0].dt + f.timezone_offset;
     var currentTime = moment.unix(currentTimeUnix).format("(MM/D/YYYY)")
     $('#currentDate').text(currentTime)
+    $("#currentIcon").attr("src", iconUrl);
     $('#tempF').text(currentTemp)
     $('#windS').text(wind)
     $('#humid').text(humidity)
@@ -62,10 +66,13 @@ function forecastData(f){
     days5.each(function(i){
         var highT = f.daily[i+1].temp.max + "ºF";
         var lowT = f.daily[i+1].temp.min + "ºF";
+        var iconD = f.daily[i+1].weather[0].icon
+        var iconUrlD = "http://openweathermap.org/img/w/" + iconD + ".png";
         var windD = f.daily[i+1].wind_speed
         var humidityD = f.daily[i+1].humidity
         var currentTimeUnixD = f.daily[i+1].dt + f.timezone_offset;
         var currentTimeD = moment.unix(currentTimeUnixD).format("MM/D/YYYY")
+        $(this).children('.iconD').attr("src", iconUrlD);
         $(this).children('.dateD').text(currentTimeD);
         $(this).children().children('.highT').text(highT);
         $(this).children().children('.lowT').text(lowT);
