@@ -62,6 +62,17 @@ function forecastData(f){
     $('#windS').text(wind)
     $('#humid').text(humidity)
     $('#UVI').text(uvIndex)
+    if (uvIndex <= 2){
+        $('#UVI').css("background-color", "green")
+    }else if (2< uvIndex <=5) {
+        $('#UVI').css("background-color", "yellow")
+    }else if (5< uvIndex <=7) {
+        $('#UVI').css("background-color", "orange")
+    }else if (8 < uvIndex <= 10) {
+        $('#UVI').css("background-color", "red");
+    } else {
+        $('#UVI').css("background-color", "purple")
+    }
 
     days5.each(function(i){
         var highT = f.daily[i+1].temp.max + "ºF";

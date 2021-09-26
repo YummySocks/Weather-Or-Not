@@ -18,6 +18,16 @@ span {
     padding-left: .5rem;
 }
 
+.cardD > img {
+    height: auto;
+    max-width: 40%;
+}
+
+.resultsB {
+    width: 100%;
+    margin: 1rem .5rem 0 0;
+}
+
 .cardD {
     background-color: rgb(26, 32, 80);
     color: white;
@@ -37,6 +47,11 @@ span {
     margin-top: 2rem;
 }
 
+
+
 #results {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    
 }
