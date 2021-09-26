@@ -30,7 +30,17 @@ function forecastData(f){
     $('#UVI').text(uvIndex)
 
     days5.each(function(i){
-
+        var highT = f.daily[i+1].temp.max + "ºF";
+        var lowT = f.daily[i+1].temp.min + "ºF";
+        var windD = f.daily[i+1].wind_speed
+        var humidityD = f.daily[i+1].humidity
+        var currentTimeUnixD = f.daily[i+1].dt + f.timezone_offset;
+        var currentTimeD = moment.unix(currentTimeUnixD).format("MM/D/YYYY")
+        $(this).children('.dateD').text(currentTimeD);
+        $(this).children().children('.highT').text(highT);
+        $(this).children().children('.lowT').text(lowT);
+        $(this).children().children('.windD').text(windD);
+        $(this).children().children('.humidityD').text(humidityD);
     })
 
 
