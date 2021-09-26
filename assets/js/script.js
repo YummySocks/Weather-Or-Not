@@ -3,9 +3,9 @@ var days5 = $(".cardD")
 var cities = JSON.parse(localStorage.getItem("citiesLi"));
 var resultsLi = $(".resultsLi")
 $('#searchButton').on("click",function(){
-    var textInput = $('#searchText').val();
-    city = textInput;
+    var city = $('#searchText').val();
     grabWeatherData(city);
+
 })
 
 function displayCities(){
@@ -30,7 +30,6 @@ function displayCities(){
        }
        $(".resultsB").on("click", function(){
         var city = $(this).text()
-        console.log(city)
         grabWeatherData(city);
     })
     }
@@ -52,7 +51,6 @@ function forecastData(f){
     var humidity = f.current.humidity;
     var wind = f.current.wind_speed + "MPH";
     var icon = f.current.weather[0].icon;
-    console.log(icon);
     var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
     var currentTimeUnix = f.daily[0].dt + f.timezone_offset;
     var currentTime = moment.unix(currentTimeUnix).format("(MM/D/YYYY)")
@@ -93,16 +91,18 @@ function forecastData(f){
 }
 
 function saveCity (city) {
-    
     if (cities == null){
     cities = [];
     cities.unshift(city)
     localStorage.setItem("citiesLi", JSON.stringify(cities))
     displayCities();
     } else {
-    cities.unshift(city)
-    localStorage.setItem("citiesLi", JSON.stringify(cities))
-    displayCities();
+        var result = cities.indexOf(city)
+        if (result == -1){
+        cities.unshift(city)
+        localStorage.setItem("citiesLi", JSON.stringify(cities))
+        displayCities();
+        }
     }
     
 }
@@ -134,7 +134,7 @@ function fullWeatherData(lat,lon){
 
 function init (){
 displayCities();
-city = "Kennesaw";
+city = "Atlanta";
 grabWeatherData(city)
 }
 
