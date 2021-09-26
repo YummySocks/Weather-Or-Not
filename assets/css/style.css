@@ -6,28 +6,37 @@ header {
 main {
     display: flex;
 }
+
 .current, .cardD {
     border: 1px solid black;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+}
 
+span {
+    padding-left: .5rem;
 }
 
 .cardD {
     background-color: rgb(26, 32, 80);
     color: white;
 }
+
 .days {
     display: flex;
     justify-content: space-around;
 }
 
 .current, .days {
-    height: 50vh;  
+    height: 40vh;  
 }
 
 #results-list {
     border-top: 2px solid black;
     margin-top: 2rem;
+}
+
+#results {
+    list-style: none;
 }
