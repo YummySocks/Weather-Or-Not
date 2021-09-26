@@ -1,14 +1,33 @@
 var ApiKey = '8fceceef7f0be4b04dce5313fe7967a1';
 var days5 = $(".cardD")
-var cities = JSON.parse(localStorage.getItem(cities));
-console.log(days5)
+var cities = JSON.parse(localStorage.getItem("citiesLi"));
+var resultsLi = $(".resultsLi")
 $('#searchButton').on("click",function(){
     var textInput = $('#searchText').val();
     city = textInput;
     grabWeatherData();
 })
 
+function displayCities(){
+    if(cities != null){
+        while (cities.length > 8){
+            cities = JSON.parse(localStorage.getItem("citiesLi"));
+            cities.pop();
+            localStorage.setItem("citiesLi", JSON.stringify(cities))
+        }
+    }
+    if (cities == null){
+        
+    } else {
+       for(i=0; i < cities.length; i++){
+            var tempC = cities[i];
+            var tempButton = $("<button></button>").addClass("btn btn-secondary resultsB");
+            tempButton.appendTo(resultsLi[i]);
+            tempButton.append(tempC);
 
+       }
+    }
+}
 
 //pulls out the lat and lon data to pass on to the real weather call
 function pullWeatherData(d){
@@ -46,17 +65,21 @@ function forecastData(f){
         $(this).children().children('.windD').text(windD);
         $(this).children().children('.humidityD').text(humidityD);
     })
-    console.log(f);
 }
 
 function saveCity (city) {
+    
     if (cities == null){
-    cities = [city];
-    } else {
+    cities = [];
     cities.unshift(city)
-    }
     localStorage.setItem("citiesLi", JSON.stringify(cities))
     displayCities();
+    } else {
+    cities.unshift(city)
+    localStorage.setItem("citiesLi", JSON.stringify(cities))
+    displayCities();
+    }
+    
 }
 
 
@@ -83,3 +106,4 @@ function fullWeatherData(lat,lon){
     .then(response => response.json())
     .then(data => forecastData(data))
 }
+displayCities();
