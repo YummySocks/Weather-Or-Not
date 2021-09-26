@@ -131,4 +131,11 @@ function fullWeatherData(lat,lon){
     .then(response => response.json())
     .then(data => forecastData(data))
 }
+
+function init (){
 displayCities();
+city = "Kennesaw";
+grabWeatherData(city)
+}
+
+init();

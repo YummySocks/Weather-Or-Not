@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -12,19 +13,19 @@
     <title>Document</title>
 </head>
 <body>
-    <header >
+    <header>
       <div>
         <h1 class="d-flex justify-content-center">Weather Dashboard</h1>
       </div>
     </header>
     <main>
-        <div class="col-2 d-flex flex-column mx-2">
+        <div class="col-2 d-flex flex-column container">
           <div class="row d-flex flex-column">
             <h2>Search for a city!</h2>
             <input id="searchText" type="text"><br>
             <button type="button" class="btn btn-primary" id="searchButton">Search</button>
           </div>
-          <div class="row d-flex flex-column" id="results-list">
+          <div class="d-flex flex-column" id="results-list">
             <ul id="results">
               
             </ul>
