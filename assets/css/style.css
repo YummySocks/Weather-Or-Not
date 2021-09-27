@@ -42,6 +42,12 @@ span {
     height: 40vh;  
 }
 
+#UVI {
+    padding-right: .5rem;
+    border-radius: 0.25rem;
+    color: white;
+}
+
 #results-list {
     border-top: 2px solid black;
     margin-top: 2rem;
