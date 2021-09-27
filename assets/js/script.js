@@ -34,7 +34,6 @@ function displayCities(){
 }
 //pulls out the lat and lon data to pass on to the real weather call
 function pullWeatherData(d){
-    console.log(d);
     var lat = d.coord.lat
     var lon = d.coord.lon
     var city = d.name
