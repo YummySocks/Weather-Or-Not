@@ -15,10 +15,7 @@ function displayCities(){
             cities.pop();
             localStorage.setItem('citiesLi', JSON.stringify(cities))
         }
-    }
-    if (cities == null){   
-    } else {
-       for(i=0; i < cities.length; i++){
+        for(i=0; i < cities.length; i++){
             var tempC = cities[i];
             var tempLi = $('<li></li>')
             var tempButton = $('<button></button>').addClass('btn btn-secondary resultsB');
@@ -30,6 +27,8 @@ function displayCities(){
         var city = $(this).text()
         grabWeatherData(city)
     })
+    } else {
+       
     }
 }
 //pulls out the lat and lon data to pass on to the real weather call
