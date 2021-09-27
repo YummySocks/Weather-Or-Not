@@ -7,6 +7,8 @@ main {
     display: flex;
 }
 
+
+
 .current, .cardD {
     border: 1px solid black;
     display: flex;
@@ -38,9 +40,6 @@ span {
     justify-content: space-around;
 }
 
-.current, .days {
-    height: 40vh;  
-}
 
 #UVI {
     padding-right: .5rem;
@@ -58,6 +57,14 @@ span {
 #results {
     list-style: none;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column; 
 }
+
+@media screen and (max-width: 992px) {
+    main {
+        flex-direction: column;
+    }
+    .days {
+        flex-direction: column;
+    }
+  }

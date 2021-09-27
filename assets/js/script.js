@@ -5,7 +5,6 @@ var resultsLi = $('.resultsLi')
 $('#searchButton').on('click',function(){
     var city = $('#searchText').val()
     grabWeatherData(city)
-
 })
 
 function displayCities(){
@@ -17,8 +16,7 @@ function displayCities(){
             localStorage.setItem('citiesLi', JSON.stringify(cities))
         }
     }
-    if (cities == null){
-        
+    if (cities == null){   
     } else {
        for(i=0; i < cities.length; i++){
             var tempC = cities[i];
@@ -34,7 +32,6 @@ function displayCities(){
     })
     }
 }
-
 //pulls out the lat and lon data to pass on to the real weather call
 function pullWeatherData(d){
     var lat = d.coord.lat
