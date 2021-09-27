@@ -5,6 +5,7 @@ var resultsLi = $('.resultsLi')
 $('#searchButton').on('click',function(){
     var city = $('#searchText').val()
     grabWeatherData(city)
+    $('#searchText').val('')
 })
 
 function displayCities(){
@@ -59,7 +60,7 @@ function forecastData(f){
     if (uvIndex <= 2){
         $('#UVI').css('background-color', 'green')
     }else if (2< uvIndex <=5) {
-        $('#UVI').css('background-color', 'yellow')
+        $('#UVI').css('background-color', 'yellow').css('color','black')
     }else if (5< uvIndex <=7) {
         $('#UVI').css('background-color', 'orange')
     }else if (8 < uvIndex <= 10) {
@@ -74,7 +75,7 @@ function forecastData(f){
         var iconD = f.daily[i+1].weather[0].icon
         var iconUrlD = 'http://openweathermap.org/img/w/' + iconD + '.png'
         var windD = f.daily[i+1].wind_speed
-        var humidityD = f.daily[i+1].humidity
+        var humidityD = f.daily[i+1].humidity +'%'
         var currentTimeUnixD = f.daily[i+1].dt + f.timezone_offset
         var currentTimeD = moment.unix(currentTimeUnixD).format('MM/D/YYYY')
         $(this).children('.iconD').attr('src', iconUrlD)
