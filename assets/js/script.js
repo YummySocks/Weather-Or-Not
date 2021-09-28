@@ -94,12 +94,11 @@ function forecastData(f){
 function saveCity (city) {
     // checks if the array has no value and sets it as an empty array to then put the searched city into it
     if (cities == null){
-    cities = []
-    cities.unshift(city)
+    cities = [city]
     localStorage.setItem('citiesLi', JSON.stringify(cities))
     displayCities()
     } else {
-        // otherwise makes sure the city isnt already in the array before putting the new value there
+        // otherwise makes sure the city isn't already in the array before putting the new value there
         var result = cities.indexOf(city)
         if (result == -1){
         cities.unshift(city)
