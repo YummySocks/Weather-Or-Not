@@ -16,14 +16,14 @@ function displayCities(){
         // makes sure the array has objects in it and if the array has a length over 8, will trim it down to size
         while (cities.length > 8){
             cities = JSON.parse(localStorage.getItem('citiesLi'))
-            cities.pop();
+            cities.pop()
             localStorage.setItem('citiesLi', JSON.stringify(cities))
         }
         // a loop through the whole length of the local storage array of city names and turns them into buttons in a list below the search bar 
         for(i=0; i < cities.length; i++){
-            var tempC = cities[i];
+            var tempC = cities[i]
             var tempLi = $('<li></li>')
-            var tempButton = $('<button></button>').addClass('btn btn-secondary resultsB');
+            var tempButton = $('<button></button>').addClass('btn btn-secondary resultsB')
             $('#results').append(tempLi)
             tempButton.appendTo(tempLi)
             tempButton.append(tempC)
@@ -68,7 +68,7 @@ function forecastData(f){
         } if (uvIndex >5 && uvIndex <=7) {
         $('#UVI').css('background-color', 'orange')
         } if (uvIndex > 7 && uvIndex <= 10) {
-        $('#UVI').css('background-color', 'red');
+        $('#UVI').css('background-color', 'red')
         } if (uvIndex > 10) {
         $('#UVI').css('background-color', 'purple')
         }
