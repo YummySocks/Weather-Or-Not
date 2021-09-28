@@ -51,7 +51,7 @@ function forecastData(f){
     var humidity = f.current.humidity
     var wind = f.current.wind_speed + 'MPH'
     var icon = f.current.weather[0].icon
-    var iconUrl = 'http://openweathermap.org/img/w/' + icon + '.png'
+    var iconUrl = 'http://openweathermap.org/img/wn/' + icon + '@2x.png'
     var currentTimeUnix = f.daily[0].dt + f.timezone_offset
     var currentTime = moment.unix(currentTimeUnix).format('(MM/D/YYYY)')
     $('#currentDate').text(currentTime)
@@ -77,7 +77,7 @@ function forecastData(f){
         var highT = f.daily[i+1].temp.max + 'ºF'
         var lowT = f.daily[i+1].temp.min + 'ºF'
         var iconD = f.daily[i+1].weather[0].icon
-        var iconUrlD = 'http://openweathermap.org/img/w/' + iconD + '.png'
+        var iconUrlD = 'http://openweathermap.org/img/wn/' + iconD + '@2x.png'
         var windD = f.daily[i+1].wind_speed
         var humidityD = f.daily[i+1].humidity +'%'
         var currentTimeUnixD = f.daily[i+1].dt + f.timezone_offset
