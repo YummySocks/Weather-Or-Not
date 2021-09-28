@@ -59,13 +59,13 @@ function forecastData(f){
     $('#UVI').text(uvIndex)
     if (uvIndex <= 2){
         $('#UVI').css('background-color', 'green')
-    }else if (2< uvIndex <=5) {
+    } if (uvIndex >2 && uvIndex <=5) {
         $('#UVI').css('background-color', 'yellow').css('color','black')
-    }else if (5< uvIndex <=7) {
+    } if (uvIndex >5 && uvIndex <=7) {
         $('#UVI').css('background-color', 'orange')
-    }else if (8 < uvIndex <= 10) {
+    } if (uvIndex > 7 && uvIndex <= 10) {
         $('#UVI').css('background-color', 'red');
-    } else {
+    } if (uvIndex > 10) {
         $('#UVI').css('background-color', 'purple')
     }
 
